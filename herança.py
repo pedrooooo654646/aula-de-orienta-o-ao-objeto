@@ -1,6 +1,6 @@
 
 
-class Pessoa:
+class Trouxa:
     def __init__(self, nome, cpf):
         self.nome = nome
         self.__cpf = cpf
@@ -15,24 +15,29 @@ class Pessoa:
     def getcpf(self):
         return self.__cpf
     
-class Mae(Pessoa):
-    def __init__(self, nome, cpf, corpele):
+
+
+class Bruxo:
+    def __init__(self, casa, patrono):
+        self.casa = casa
+        self.patrono = patrono
+
+    def lancarfeitco(self):
+        print('solta o fetiço')
+
+
+
+class Mestico(Trouxa, Bruxo):
+    def __init__(self, nome, cpf, casa, patrono):
         super().__init__(nome, cpf)
-        self.corpele = corpele
-    
-    def dançar(self):
-        print(f'{self.nome} está dançando')
+        Bruxo.__init__(self, casa, patrono)
 
 
-# instÂncia de um objeto da classe pessoa
+mestico1 = Mestico('luna', '000.111.222-33', 'grifinoria', 'coelho')
 
-pessoa1 =Pessoa('tim maia', '000.111.222-33')
+mestico1.lancarfeitco()
 
-print(pessoa1.nome)
-print(pessoa1.getcpf())
 
-pessoa1.nome = 'glauber'
 
-print(pessoa1.nome)
-pessoa1.setcpf('111.222.333-44')
-print(pessoa1.getcpf())
+
+
